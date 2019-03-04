@@ -6,9 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 public class simpleDrawer {
-
-	
-	
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("This is my program");
@@ -29,12 +26,6 @@ public class simpleDrawer {
 			panel[i].setSize(100, 100);
 			button[i] = new JButton("hello");
 		}
-		
-		
-		
-		
-		
-		
 		
 		
 		
