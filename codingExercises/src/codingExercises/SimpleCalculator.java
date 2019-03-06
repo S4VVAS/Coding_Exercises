@@ -45,20 +45,43 @@ public class SimpleCalculator {
 
 	JLabel label = new JLabel();
 
-	private String result = "";
+	private String currentVal = "";
 	private int textFontSize = 40;
 	private double storedValue = 0;
+	private String operation = "plus";
 
 	private void updateResult(String s) {
 		label.setFont(new Font("", Font.BOLD, textFontSize));
 		label.setText(s);
 	}
-	
+
+	private void adder(double d) {
+		if (operation.equals("plus")) {
+			storedValue += d;
+		}
+		else if (operation.equals("minus")) {
+			storedValue -= d;
+		}
+		else if (operation.equals("times")) {
+			storedValue *= d;
+		}
+		else if (operation.equals("devided")) {
+			storedValue /= d;
+		}
+		else if (operation.equals("square")) {
+			storedValue *= storedValue;
+		}
+		else {
+			return;
+		}
+		
+		operation = "";
+	}
 
 	public SimpleCalculator() {
-		
-		//SETS COLOR OF BUTTONS
-		
+
+		// SETS COLOR OF BUTTONS
+
 		one.setBackground(Color.LIGHT_GRAY);
 		two.setBackground(Color.LIGHT_GRAY);
 		three.setBackground(Color.LIGHT_GRAY);
@@ -76,14 +99,14 @@ public class SimpleCalculator {
 		devided.setBackground(Color.LIGHT_GRAY);
 		cl.setBackground(Color.ORANGE);
 		dot.setBackground(Color.LIGHT_GRAY);
-		
+
 		equals.setBackground(Color.cyan);
 		square.setBackground(Color.LIGHT_GRAY);
 		negative.setBackground(Color.LIGHT_GRAY);
 		del.setBackground(Color.LIGHT_GRAY);
 
-		//SETS LAYOUT OF PANELS
-		
+		// SETS LAYOUT OF PANELS
+
 		frame.setLayout(mainL);
 		p2.setLayout(bLayout);
 		p3.setLayout(bLayout);
@@ -91,8 +114,8 @@ public class SimpleCalculator {
 		p5.setLayout(bLayout);
 		p6.setLayout(bLayout);
 
-		//ADDS PANELS TO FRAME
-		
+		// ADDS PANELS TO FRAME
+
 		frame.add(p1);
 		frame.add(p2);
 		frame.add(p3);
@@ -100,11 +123,12 @@ public class SimpleCalculator {
 		frame.add(p5);
 		frame.add(p6);
 
-		//ADDS ELEMENTS TO PANELS
-		
+		// ADDS ELEMENTS TO PANELS
+
 		label.setFont(new Font("", Font.BOLD, textFontSize));
 		updateResult("hello and welcom");
 		p1.add(label);
+		p1.setBorder(BorderFactory.createLoweredSoftBevelBorder());
 
 		p2.add(one);
 		p2.add(two);
@@ -131,260 +155,253 @@ public class SimpleCalculator {
 		p6.add(square);
 		p6.add(equals);
 
-		//NUMBER ACTION EVENTS
-		
+		// NUMBER ACTION EVENTS
+
 		one.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "1";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "1";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "1";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "1";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		two.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "2";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "2";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "2";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "2";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		three.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "3";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "3";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "3";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "3";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		four.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "4";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "4";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "4";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "4";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		five.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "5";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "5";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "5";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "5";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		six.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "6";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "6";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "6";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "6";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		seven.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "7";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "7";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "7";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "7";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		eight.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "8";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "8";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "8";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "8";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		nine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "9";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "9";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "9";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "9";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		zero.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + "0";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + "0";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + "0";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + "0";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
+
 		dot.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (result.length() < 14) {
-					result = result + ".";
-					updateResult(result);
-				}
-				else {
-					textFontSize-=2;
-					result = result + ".";
-					updateResult(result);
+				if (currentVal.length() < 14) {
+					currentVal = currentVal + ".";
+					updateResult(currentVal);
+				} else {
+					textFontSize -= 2;
+					currentVal = currentVal + ".";
+					updateResult(currentVal);
 				}
 			}
 		});
-		
-		//MATH OPERATIONS
-		
+
+		// MATH OPERATIONS
+
 		plus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = storedValue + Double.parseDouble(result);
-				result = "";
-				updateResult(result);
+				adder(Double.parseDouble(currentVal));
+				operation = "plus";
+				currentVal = "";
+				updateResult(currentVal);
 			}
 		});
-		
+
 		minus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = storedValue - Double.parseDouble(result);
-				result = "";
-				updateResult(result);
+				adder(Double.parseDouble(currentVal));
+				operation = "minus";
+				currentVal = "";
+				updateResult(currentVal);
 			}
 		});
-		
+
 		times.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = (storedValue * Double.parseDouble(result));
-				result = "";
-				updateResult(result);
+				adder(Double.parseDouble(currentVal));
+				operation = "times";
+				currentVal = "";
+				updateResult(currentVal);
 			}
 		});
-		
+
 		devided.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = (storedValue / Double.parseDouble(result));
-				result = "";
-				updateResult(result);
+				adder(Double.parseDouble(currentVal));
+				operation = "devided";
+				currentVal = "";
+				updateResult(currentVal);
 			}
 		});
 
 		negative.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = (storedValue - (storedValue * 2));
-				result = "";
-				updateResult(result);
+				currentVal = "-" + currentVal;
+				updateResult(currentVal);
 			}
 		});
-		
+
 		square.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				storedValue = (storedValue * storedValue);
-				result = "";
-				updateResult(result);
+				adder(Double.parseDouble(currentVal));
+				operation = "square";
+				
+				adder(Double.parseDouble(currentVal));
+				currentVal = Double.toString(storedValue);
+				updateResult(currentVal);
 			}
 		});
-		
-		//EQUALS AND CLEAR OPERATIONS
-		
+
+		// EQUALS AND CLEAR OPERATIONS
+
 		equals.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				updateResult(Double.toString(storedValue));
+				adder(Double.parseDouble(currentVal));
+				currentVal = Double.toString(storedValue);
+				updateResult(currentVal);
 			}
 		});
-		
+
 		cl.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				textFontSize = 40;
 				updateResult("");
-				result = "";
+				currentVal = "";
 				storedValue = 0;
+				operation = "plus";
 			}
 		});
-		
+
 		del.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				result = "";
-				updateResult(result);
+				currentVal = "";
+				updateResult(currentVal);
 			}
 		});
-		
-		
-		
-		
-		
 
 		frame.pack();
 		frame.setLocationRelativeTo(null);
@@ -396,7 +413,7 @@ public class SimpleCalculator {
 	}
 
 	public static void main(String[] args) {
-		SimpleCalculator s = new SimpleCalculator();
+		new SimpleCalculator();
 	}
 
 }
