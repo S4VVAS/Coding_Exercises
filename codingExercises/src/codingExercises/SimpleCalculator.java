@@ -7,12 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class SimpleCalculator {
 	JFrame frame = new JFrame("Savvas's BOOTLEG yeetculator");
 
-	GridLayout mainL = new GridLayout(6, 1, 30, 30);
-	GridLayout bLayout = new GridLayout(1, 4, 30, 30);
+	Font font = new Font("", Font.BOLD, 40);
+	
+	GridLayout mainL = new GridLayout(6, 1, 10, 20);
+	GridLayout bLayout = new GridLayout(1, 4, 10, 20);
 
 	JButton one = new JButton("1");
 	JButton two = new JButton("2");
@@ -26,7 +29,7 @@ public class SimpleCalculator {
 	JButton zero = new JButton("0");
 
 	JButton plus = new JButton("+");
-	JButton minus = new JButton("_");
+	JButton minus = new JButton("-");
 	JButton times = new JButton("x");
 	JButton devided = new JButton("/");
 	JButton cl = new JButton("CL");
@@ -46,7 +49,7 @@ public class SimpleCalculator {
 	JLabel label = new JLabel();
 
 	private String currentVal = "";
-	private int textFontSize = 40;
+	private int textFontSize = 50;
 	private double storedValue = 0;
 	private String operation = "plus";
 
@@ -82,16 +85,16 @@ public class SimpleCalculator {
 
 		// SETS COLOR OF BUTTONS
 
-		one.setBackground(Color.LIGHT_GRAY);
-		two.setBackground(Color.LIGHT_GRAY);
-		three.setBackground(Color.LIGHT_GRAY);
-		four.setBackground(Color.LIGHT_GRAY);
-		five.setBackground(Color.LIGHT_GRAY);
-		six.setBackground(Color.LIGHT_GRAY);
-		seven.setBackground(Color.LIGHT_GRAY);
-		eight.setBackground(Color.LIGHT_GRAY);
-		nine.setBackground(Color.LIGHT_GRAY);
-		zero.setBackground(Color.LIGHT_GRAY);
+		one.setBackground(Color.white);
+		two.setBackground(Color.white);
+		three.setBackground(Color.white);
+		four.setBackground(Color.white);
+		five.setBackground(Color.white);
+		six.setBackground(Color.white);
+		seven.setBackground(Color.white);
+		eight.setBackground(Color.white);
+		nine.setBackground(Color.white);
+		zero.setBackground(Color.white);
 
 		plus.setBackground(Color.LIGHT_GRAY);
 		minus.setBackground(Color.LIGHT_GRAY);
@@ -106,8 +109,11 @@ public class SimpleCalculator {
 		del.setBackground(Color.LIGHT_GRAY);
 
 		// SETS LAYOUT OF PANELS
-
-		frame.setLayout(mainL);
+		JPanel yo = new JPanel();
+		
+		frame.add(yo);
+		yo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		yo.setLayout(mainL);
 		p2.setLayout(bLayout);
 		p3.setLayout(bLayout);
 		p4.setLayout(bLayout);
@@ -116,12 +122,12 @@ public class SimpleCalculator {
 
 		// ADDS PANELS TO FRAME
 
-		frame.add(p1);
-		frame.add(p2);
-		frame.add(p3);
-		frame.add(p4);
-		frame.add(p5);
-		frame.add(p6);
+		yo.add(p1);
+		yo.add(p2);
+		yo.add(p3);
+		yo.add(p4);
+		yo.add(p5);
+		yo.add(p6);
 
 		// ADDS ELEMENTS TO PANELS
 
@@ -130,30 +136,30 @@ public class SimpleCalculator {
 		p1.add(label);
 		p1.setBorder(BorderFactory.createLoweredSoftBevelBorder());
 
-		p2.add(one);
-		p2.add(two);
-		p2.add(three);
-		p2.add(plus);
+		p2.add(one).setFont(font);
+		p2.add(two).setFont(font);
+		p2.add(three).setFont(font);
+		p2.add(plus).setFont(font);
 
-		p3.add(four);
-		p3.add(five);
-		p3.add(six);
-		p3.add(minus);
+		p3.add(four).setFont(font);
+		p3.add(five).setFont(font);
+		p3.add(six).setFont(font);
+		p3.add(minus).setFont(font);
 
-		p4.add(seven);
-		p4.add(eight);
-		p4.add(nine);
-		p4.add(times);
+		p4.add(seven).setFont(font);
+		p4.add(eight).setFont(font);
+		p4.add(nine).setFont(font);
+		p4.add(times).setFont(font);
 
-		p5.add(dot);
-		p5.add(zero);
-		p5.add(cl);
-		p5.add(devided);
+		p5.add(dot).setFont(font);
+		p5.add(zero).setFont(font);
+		p5.add(cl).setFont(font);
+		p5.add(devided).setFont(font);
 
-		p6.add(del);
-		p6.add(negative);
-		p6.add(square);
-		p6.add(equals);
+		p6.add(del).setFont(font);
+		p6.add(negative).setFont(font);
+		p6.add(square).setFont(font);
+		p6.add(equals).setFont(font);
 
 		// NUMBER ACTION EVENTS
 
@@ -387,7 +393,7 @@ public class SimpleCalculator {
 		cl.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				textFontSize = 40;
+				textFontSize = 50;
 				updateResult("");
 				currentVal = "";
 				storedValue = 0;
@@ -406,7 +412,7 @@ public class SimpleCalculator {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-		frame.setSize(350, 550);
+		frame.setSize(450, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 
