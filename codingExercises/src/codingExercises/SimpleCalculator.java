@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 
 public class SimpleCalculator {
 	JFrame frame = new JFrame("Savvas's BOOTLEG yeetculator");
@@ -169,8 +168,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "1";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "1";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "1";
 					updateResult(currentVal);
 				}
@@ -183,8 +186,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "2";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "2";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "2";
 					updateResult(currentVal);
 				}
@@ -197,8 +204,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "3";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "3";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "3";
 					updateResult(currentVal);
 				}
@@ -211,8 +222,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "4";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "4";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "4";
 					updateResult(currentVal);
 				}
@@ -225,8 +240,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "5";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "5";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "5";
 					updateResult(currentVal);
 				}
@@ -239,8 +258,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "6";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "6";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "6";
 					updateResult(currentVal);
 				}
@@ -253,13 +276,16 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "7";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
 					currentVal = currentVal + "7";
 					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
+					currentVal = currentVal + "7";
+					updateResult(currentVal);
 				}
-			}
-		});
+		}});
 
 		eight.addActionListener(new ActionListener() {
 			@Override
@@ -267,8 +293,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "8";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "8";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "8";
 					updateResult(currentVal);
 				}
@@ -281,8 +311,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "9";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "9";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "9";
 					updateResult(currentVal);
 				}
@@ -295,8 +329,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + "0";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + "0";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + "0";
 					updateResult(currentVal);
 				}
@@ -309,8 +347,12 @@ public class SimpleCalculator {
 				if (currentVal.length() < 14) {
 					currentVal = currentVal + ".";
 					updateResult(currentVal);
-				} else {
+				} else if(currentVal.length() < 25){
 					textFontSize -= 2;
+					currentVal = currentVal + ".";
+					updateResult(currentVal);
+				}else{
+					textFontSize -= 1;
 					currentVal = currentVal + ".";
 					updateResult(currentVal);
 				}
@@ -363,6 +405,7 @@ public class SimpleCalculator {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				currentVal = "-" + currentVal;
+				storedValue = storedValue - (storedValue * 2);
 				updateResult(currentVal);
 			}
 		});
