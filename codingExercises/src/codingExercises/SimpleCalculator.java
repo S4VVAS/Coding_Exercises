@@ -35,7 +35,7 @@ public class SimpleCalculator {
 	JButton dot = new JButton(".");
 	JButton equals = new JButton("=");
 	JButton square = new JButton("^");
-	JButton negative = new JButton("(-)");
+	JButton negative = new JButton("√");
 	JButton del = new JButton("Del");
 
 	JPanel p1 = new JPanel();
@@ -72,6 +72,9 @@ public class SimpleCalculator {
 		}
 		else if (operation.equals("square")) {
 			storedValue *= storedValue;
+		}
+		else if (operation.equals("squareRoot")) {
+			storedValue = Math.sqrt(storedValue);
 		}
 		else {
 			return;
@@ -404,8 +407,11 @@ public class SimpleCalculator {
 		negative.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				currentVal = "-" + currentVal;
-				storedValue = storedValue - (storedValue * 2);
+				adder(Double.parseDouble(currentVal));
+				operation = "squareRoot";
+				
+				adder(Double.parseDouble(currentVal));
+				currentVal = Double.toString(storedValue);
 				updateResult(currentVal);
 			}
 		});
